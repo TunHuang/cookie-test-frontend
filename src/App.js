@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import EinloggenFormular from './components/EinloggenFormular.js';
+import GeheimerInhalt from './components/GeheimerInhalt.js';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [eingeloggt, setEingeloggt] = useState(false);
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      setEingeloggt(true);
+    }
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Einloggen Testseite</h1>
+      {eingeloggt ? (
+        <GeheimerInhalt setEingeloggt={setEingeloggt} />
+      ) : (
+        <EinloggenFormular setEingeloggt={setEingeloggt} />
+      )}
     </div>
   );
 }
