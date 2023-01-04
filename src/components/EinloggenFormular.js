@@ -16,8 +16,6 @@ const EinloggenFormular = ({ setEingeloggt }) => {
       });
       const data = await response.json();
       console.log(data);
-      // const token = data.token;
-      // localStorage.setItem('jwt', token);
       setEingeloggt(true);
     } catch (error) {
       console.log(error);

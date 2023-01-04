@@ -5,18 +5,10 @@ const GeheimerInhalt = ({ setEingeloggt }) => {
   useEffect(() => {
     const fetchWithToken = async () => {
       try {
-        // const token = localStorage.getItem('jwt');
-        // const myHeaders = new Headers({
-        //   Authorization: 'Bearer: ' + token,
-        // });
-        // const response = await fetch('http://localhost:4000/nurEingeloggt', {
-        //   headers: myHeaders,
-        // });
         const response = await fetch('http://localhost:4000/nurEingeloggt', {
           credentials: 'include',
         });
         if (!response.ok) {
-          localStorage.removeItem('jwt');
           throw new Error('Einloggen fehlgeschlagen');
         }
         setEingeloggt(true);

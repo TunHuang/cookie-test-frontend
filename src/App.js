@@ -6,10 +6,15 @@ import { useState, useEffect } from 'react';
 function App() {
   const [eingeloggt, setEingeloggt] = useState(false);
   useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      setEingeloggt(true);
-    }
+    const checklogin = async () => {
+      const response = await fetch('http://localhost:4000/checklogin', {
+        credentials: 'include',
+      });
+      if (response.ok) {
+        setEingeloggt(true);
+      }
+    };
+    checklogin();
   }, []);
   return (
     <div className="App">
