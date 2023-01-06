@@ -7,6 +7,7 @@ function App() {
   const [eingeloggt, setEingeloggt] = useState(false);
   useEffect(() => {
     const checklogin = async () => {
+      // Wichtig: Die Option credentials muss gesetzt sein, damit Cookie von fetch mitgesendet wird
       const response = await fetch('http://localhost:4000/checklogin', {
         credentials: 'include',
       });

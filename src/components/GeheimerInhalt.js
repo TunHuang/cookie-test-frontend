@@ -6,7 +6,7 @@ const GeheimerInhalt = ({ setEingeloggt }) => {
     const fetchWithToken = async () => {
       try {
         const response = await fetch('http://localhost:4000/nurEingeloggt', {
-          credentials: 'include',
+          credentials: 'include', // <- wichtig für Cookie
         });
         if (!response.ok) {
           throw new Error('Einloggen fehlgeschlagen');
