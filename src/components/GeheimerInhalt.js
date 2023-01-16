@@ -5,9 +5,12 @@ const GeheimerInhalt = ({ setEingeloggt }) => {
   useEffect(() => {
     const fetchWithToken = async () => {
       try {
-        const response = await fetch('http://localhost:4000/nurEingeloggt', {
-          credentials: 'include', // <- wichtig für Cookie
-        });
+        const response = await fetch(
+          'https://cookie-test-backend.onrender.com/nurEingeloggt',
+          {
+            credentials: 'include', // <- wichtig für Cookie
+          }
+        );
         if (!response.ok) {
           throw new Error('Einloggen fehlgeschlagen');
         }

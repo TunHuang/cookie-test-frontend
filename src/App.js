@@ -8,9 +8,12 @@ function App() {
   useEffect(() => {
     const checklogin = async () => {
       // Wichtig: Die Option credentials muss gesetzt sein, damit Cookie von fetch mitgesendet wird
-      const response = await fetch('http://localhost:4000/checklogin', {
-        credentials: 'include',
-      });
+      const response = await fetch(
+        'https://cookie-test-backend.onrender.com/checklogin',
+        {
+          credentials: 'include',
+        }
+      );
       if (response.ok) {
         setEingeloggt(true);
       }

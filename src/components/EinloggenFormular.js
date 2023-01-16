@@ -6,14 +6,17 @@ const EinloggenFormular = ({ setEingeloggt }) => {
   const submitHandler = async (event) => {
     try {
       event.preventDefault();
-      const response = await fetch('http://localhost:4000/login', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(bodyObj),
-        credentials: 'include',
-      });
+      const response = await fetch(
+        'https://cookie-test-backend.onrender.com/login',
+        {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(bodyObj),
+          credentials: 'include',
+        }
+      );
       const data = await response.json();
       console.log(data);
       setEingeloggt(true);
